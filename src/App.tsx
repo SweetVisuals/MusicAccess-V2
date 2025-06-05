@@ -11,6 +11,7 @@ import AnalyticsPage from "@/app/dashboard/analytics"
 import ProjectsPage from "@/app/dashboard/projects"
 import ContractsPage from "@/app/dashboard/contracts"
 import OrdersPage from "@/app/dashboard/orders"
+import SalesPage from "@/app/dashboard/sales"
 import FindTalentPage from "@/app/home/find-talent"
 import TutorialsPage from "@/app/home/tutorials"
 import MarketingPage from "@/app/home/marketing"
@@ -115,6 +116,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <OrdersPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/dashboard/sales" 
+            element={
+              <ProtectedRoute>
+                <SalesPage />
               </ProtectedRoute>
             } 
           />
