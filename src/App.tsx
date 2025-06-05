@@ -8,7 +8,7 @@ import ProfilePage from "@/app/user/user-profile"
 import ServicesPage from "@/app/dashboard/services"
 import BillingPage from "@/app/dashboard/billing"
 import AnalyticsPage from "@/app/dashboard/analytics"
-import ProjectsPage from "@/app/dashboard/projects"
+import ManageFilesPage from "@/app/dashboard/manage-files"
 import ContractsPage from "@/app/dashboard/contracts"
 import OrdersPage from "@/app/dashboard/orders"
 import FindTalentPage from "@/app/home/find-talent"
@@ -95,10 +95,10 @@ function App() {
             } 
           />
           <Route 
-            path="/dashboard/projects" 
+            path="/dashboard/manage-files" 
             element={
               <ProtectedRoute>
-                <ProjectsPage />
+                <ManageFilesPage />
               </ProtectedRoute>
             } 
           />
