@@ -10,6 +10,7 @@ import BillingPage from "@/app/dashboard/billing"
 import AnalyticsPage from "@/app/dashboard/analytics"
 import ProjectsPage from "@/app/dashboard/projects"
 import ContractsPage from "@/app/dashboard/contracts"
+import OrdersPage from "@/app/dashboard/orders"
 import FindTalentPage from "@/app/home/find-talent"
 import TutorialsPage from "@/app/home/tutorials"
 import MarketingPage from "@/app/home/marketing"
@@ -106,6 +107,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <ContractsPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/dashboard/orders" 
+            element={
+              <ProtectedRoute>
+                <OrdersPage />
               </ProtectedRoute>
             } 
           />

@@ -15,6 +15,7 @@ import {
   SearchIcon,
   SettingsIcon,
   UsersIcon,
+  ShoppingBag,
 } from "lucide-react"
 
 import { NavMain } from "@/components/dashboard/layout/nav-main"
@@ -40,8 +41,8 @@ const data = {
     },
     {
       title: "Orders",
-      url: "#",
-      icon: UsersIcon,
+      url: "/dashboard/orders",
+      icon: ShoppingBag,
     },
     {
       title: "Manage Files",
@@ -135,16 +136,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* Storage Progress Bar */}
         <div className="px-4 py-3">
           <div className="flex items-center justify-between mb-1">
-            <span className="text-xs font-medium text-muted-foreground">
+            <span className="text-xs font-medium text-sidebar-foreground/70">
               Storage
             </span>
-            <span className="text-xs pb-2 font-medium text-muted-foreground">
+            <span className="text-xs font-medium text-sidebar-foreground/70">
               25% used
             </span>
           </div>
           <Progress 
             value={25} 
-            className="h-2 bg-gray-200 dark:bg-gray-700 [&>div]:bg-blue-600 dark:[&>div]:bg-blue-400"
+            className="h-2 bg-sidebar-accent [&>div]:bg-sidebar-primary"
           />
         </div>
       </SidebarContent>
