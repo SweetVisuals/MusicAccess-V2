@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom"
+import { Routes, Route, Navigate, useLocation } from "react-router-dom"
 import Dashboard from "@/app/dashboard/dashboard"
 import Homepage from "@/app/home/homepage"
 import LoginPage from "@/app/auth/login"
@@ -8,7 +8,7 @@ import ProfilePage from "@/app/user/user-profile"
 import ServicesPage from "@/app/dashboard/services"
 import BillingPage from "@/app/dashboard/billing"
 import AnalyticsPage from "@/app/dashboard/analytics"
-import ManageFilesPage from "@/app/dashboard/manage-files"
+import ProjectsPage from "@/app/dashboard/projects"
 import ContractsPage from "@/app/dashboard/contracts"
 import OrdersPage from "@/app/dashboard/orders"
 import FindTalentPage from "@/app/home/find-talent"
@@ -24,13 +24,30 @@ import { useEffect, useState } from "react"
 import { PageLoading } from "@/components/ui/page-loading"
 import { UploadDialog } from "@/components/profile/UploadDialog"
 import UploadPage from "@/app/upload/filemanager"
-import FileManager from "@/app/files/FileManager"
+import FilesPage from "@/app/files/files"
 
 function App() {
   const { user } = useAuth()
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false)
+  const location = useLocation()
   const [isLoading, setIsLoading] = useState(false)
   const [showLoader, setShowLoader] = useState(false)
+  const [prevLocation, setPrevLocation] = useState(location)
+
+  useEffect(() => {
+    if (location.pathname !== prevLocation.pathname) {
+      setIsLoading(true)
+      const timer = setTimeout(() => setShowLoader(true), 150)
+      return () => clearTimeout(timer)
+    }
+    setPrevLocation(location)
+  }, [location, prevLocation])
+
+  useEffect(() => {
+    if (!isLoading) {
+      setShowLoader(false)
+    }
+  }, [isLoading])
 
   return (
     <SidebarProvider>
@@ -78,10 +95,10 @@ function App() {
             } 
           />
           <Route 
-            path="/dashboard/manage-files" 
+            path="/dashboard/projects" 
             element={
               <ProtectedRoute>
-                <ManageFilesPage />
+                <ProjectsPage />
               </ProtectedRoute>
             } 
           />
@@ -109,7 +126,7 @@ function App() {
             path="/auth/signup" 
             element={user ? <Navigate to="/user/dashboard\" replace /> : <SignupPage />} 
           />
-          <Route path="/auth/callback" element={<AuthCallback />} />
+          <Route path="/auth/callback\" element={<AuthCallback />} />
           <Route 
             path="/user/user-profile" 
             element={
@@ -130,7 +147,7 @@ function App() {
             path="/files" 
             element={
               <ProtectedRoute>
-                <FileManager />
+                <FilesPage />
               </ProtectedRoute>
             } 
           />
