@@ -2,23 +2,23 @@ import { useState } from "react";
 import { FileItem } from "@/lib/types";
 import { File } from "lucide-react";
 
-export const VideoFileManager = () => {
+export const AudioFileManager = () => {
   const [selectedFile, setSelectedFile] = useState<FileItem | null>(null);
 
   const files: FileItem[] = [
     {
-      id: "video1",
-      name: "Music Video.mp4",
-      type: "video",
-      size: "125 MB",
-      modified: "2025-03-03"
+      id: "audio1",
+      name: "Track1.mp3",
+      type: "audio",
+      size: "12.4 MB",
+      modified: "2025-03-05"
     },
     {
-      id: "video2",
-      name: "Studio Session.mov",
-      type: "video",
-      size: "2.1 GB",
-      modified: "2025-03-01"
+      id: "audio2",
+      name: "Mix.wav",
+      type: "audio",
+      size: "45.7 MB",
+      modified: "2025-03-04"
     }
   ];
 
@@ -33,7 +33,7 @@ export const VideoFileManager = () => {
               onClick={() => setSelectedFile(file)}
             >
               <div className="flex items-center gap-2">
-                <File className="h-4 w-4 text-red-500" />
+                <File className="h-4 w-4 text-blue-500" />
                 <span>{file.name}</span>
               </div>
               <div className="flex items-center gap-4">
@@ -51,8 +51,8 @@ export const VideoFileManager = () => {
             <h3 className="font-medium text-lg">File Info</h3>
             
             <div className="space-y-4">
-              <div className="relative w-full aspect-video bg-gray-100 rounded-md flex items-center justify-center">
-                <File className="h-16 w-16 text-red-400" />
+              <div className="relative w-full aspect-square bg-gray-100 rounded-md flex items-center justify-center">
+                <File className="h-16 w-16 text-blue-400" />
               </div>
               <div className="text-center">
                 <h4 className="font-medium">{selectedFile.name}</h4>
