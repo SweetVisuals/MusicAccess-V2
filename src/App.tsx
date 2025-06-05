@@ -126,7 +126,7 @@ function App() {
             path="/auth/signup" 
             element={user ? <Navigate to="/user/dashboard\" replace /> : <SignupPage />} 
           />
-          <Route path="/auth/callback" element={<AuthCallback />} />
+          <Route path="/auth/callback\" element={<AuthCallback />} />
           <Route 
             path="/user/user-profile" 
             element={
