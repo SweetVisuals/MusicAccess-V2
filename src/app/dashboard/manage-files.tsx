@@ -28,7 +28,10 @@ import {
   Calendar,
   Users,
   Settings,
-  ArrowUpDown
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  GripVertical
 } from "lucide-react"
 import { useState, useRef } from "react"
 import { Button } from "@/components/@/ui/button"
@@ -39,8 +42,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
@@ -62,7 +65,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/@/ui/tabs"
 interface FileItem {
   id: string
   name: string
-  type: 'folder' | 'audio' | 'image' | 'video' | 'document'
+  type: string
   size?: string
   modified: string
   starred?: boolean
@@ -424,7 +427,7 @@ export default function ManageFilesPage() {
                       {(file.starred || file.shared || file.collaborators) && (
                         <div className="mt-2 flex items-center gap-2">
                           {file.starred && (
-                            <Badge variant="secondary\" className="h-5">
+                            <Badge variant="secondary" className="h-5">
                               <Star className="mr-1 h-3 w-3" />
                               Starred
                             </Badge>
