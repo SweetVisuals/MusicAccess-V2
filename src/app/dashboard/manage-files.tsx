@@ -427,7 +427,7 @@ export default function ManageFilesPage() {
                       {(file.starred || file.shared || file.collaborators) && (
                         <div className="mt-2 flex items-center gap-2">
                           {file.starred && (
-                            <Badge variant="secondary" className="h-5">
+                            <Badge variant="secondary\" className="h-5">
                               <Star className="mr-1 h-3 w-3" />
                               Starred
                             </Badge>
